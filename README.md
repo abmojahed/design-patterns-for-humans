@@ -1635,7 +1635,7 @@ public class SomeComponent
     public int someInt;
     public string? someString;
 
-    public SomeComponent ShallowCopy()
+    public SomeComponent ShadowCopy()
     {
         return (SomeComponent)this.MemberwiseClone();
     }
@@ -1655,8 +1655,8 @@ SomeComponent c1 = new SomeComponent();
 c1.someInt = 1;
 c1.someString = "someString1";
 
-// Perform a shallow copy of c1 and assign it to c2.
-SomeComponent c2 = c1.ShallowCopy();
+// Perform a shadow copy of c1 and assign it to c2.
+SomeComponent c2 = c1.ShadowCopy();
 
 // Make a deep copy of c1 and assign it to c3.
 SomeComponent c3 = c1.DeepCopy();
@@ -1695,7 +1695,7 @@ class SomeComponent
         // no need to manually copy fields, PHP's __clone does it automatically for primitive types
     }
 
-    public function shallowCopy(): SomeComponent
+    public function shadowCopy(): SomeComponent
     {
         return clone $this;
     }
@@ -1713,8 +1713,8 @@ $c1 = new SomeComponent();
 $c1->someInt = 1;
 $c1->someString = "someString1";
 
-// Perform a shallow copy of c1 and assign it to c2.
-$c2 = $c1->shallowCopy();
+// Perform a shadow copy of c1 and assign it to c2.
+$c2 = $c1->shadowCopy();
 
 // Make a deep copy of c1 and assign it to c3.
 $c3 = $c1->deepCopy();
